@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+dehashed:
+  api-key: ${DEHASHED_API_KEY:tu_api_key_aqui}
+  email: ${DEHASHED_EMAIL:tu_email_aqui}
+
+# Variables del Score de Exposición (Encargo CompuNet)
+score:
+  cuentas: # Tabla A(C)
+    rango-bajo: 10
+    rango-medio: 25
+    rango-alto: 40
+  filtraciones: # Tabla B(B)
+    rango-bajo: 10
+    rango-medio: 20
+    rango-alto: 30
+  gravedad: # Tabla D
+    email: 5
+    personal: 10
+    hash: 15
+    plaintext: 20
+  recencia: # Tabla R
+    antigua: 2
+    media: 5
+    reciente: 10
