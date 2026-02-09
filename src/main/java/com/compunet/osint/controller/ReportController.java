@@ -10,7 +10,7 @@ import com.compunet.osint.service.MockDeHashedService;
 
 @RestController
 @RequestMapping("/api/v1/reportes")
-public class ReportControlle
+public class ReportController{
     @Autowired
     private MockDeHashedService mockService;
 
