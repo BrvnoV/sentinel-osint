@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CompuNet - Generador de Reportes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .navbar-compunet { background-color: #0047AB; } /* Azul del logo */
+        .btn-compunet { background-color: #0047AB; color: white; }
+        .btn-compunet:hover { background-color: #003380; color: white; }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-compunet mb-5 shadow-sm">
+        <div class="container">
+            <span class="navbar-brand text-white fw-bold">CompuNet® - Seguridad OSINT</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card shadow border-0">
+                    <div class="card-body p-5">
+                        <h2 class="text-center mb-4" style="color: #0047AB;">Análisis de Exposición</h2>
+                        <p class="text-muted text-center mb-4">
+                            Obtenga un reporte profesional sobre la seguridad de su dominio en segundos.
+                        </p>
+                        
+                        <form th:action="@{/api/v1/reportes/descargar}" method="get">
+                            <div class="mb-4">
+                                <label for="dominio" class="form-label fw-semibold">Dominio de la Organización</label>
+                                <input type="text" id="dominio" name="dominio" class="form-control form-control-lg" 
+                                       placeholder="ejemplo.com" required>
+                            </div>
+                            <button type="submit" class="btn btn-compunet btn-lg w-100 shadow-sm">
+                                📊 Generar y Descargar Reporte PDF
+                            </button>
+                        </form>
+                    </div>
+                    <div class="card-footer bg-white text-center py-3 border-0">
+                        <small class="text-secondary italic">"Protegemos tu información"</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

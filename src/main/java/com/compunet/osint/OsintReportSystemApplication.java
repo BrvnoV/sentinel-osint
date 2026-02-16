@@ -12,8 +12,4 @@ public class OsintReportSystemApplication {
 
 }
 
-
-
-
-
-
+// Página: http://localhost:8080/api/v1/reportes/inicio

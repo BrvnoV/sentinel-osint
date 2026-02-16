@@ -9,9 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/api/v1/reportes")
 public class ReportController {
 
@@ -24,36 +25,16 @@ public class ReportController {
     @Autowired
     private PdfGenerator pdfGenerator;
 
-    /**
-     * Endpoint para visualizar el análisis en formato JSON (Ideal para Postman).
-     */
-    @GetMapping("/simular")
-    public ExposicionDTO simularAnalisis(@RequestParam String dominio) {
-        // 1. Obtener datos del Mock (Simulando respuesta de DeHashed)
-        DeHashedResponse data = mockService.getMockData(dominio);
-
-        // 2. Ejecutar lógica del Score (Fórmula: A(C) + B(B) + D + R)
-        // Simulamos los valores del ejemplo práctico: 18 cuentas, 3 brechas, Gravedad 15, Recencia 1 año.
-        int scoreFinal = scoreService.calcularScoreTotal(18, 3, 15, 1);
-        String nivel = scoreService.obtenerNivelRiesgo(scoreFinal);
-
-        // 3. Mapear al DTO de salida
-        ExposicionDTO dto = new ExposicionDTO();
-        dto.setDominio(dominio);
-        dto.setTotalCuentasExpuestas(data.getTotal());
-        dto.setTotalFiltraciones(3); 
-        dto.setScoreFinal(scoreFinal);
-        dto.setNivelRiesgo(nivel);
-
-        return dto;
+    // Carga la interfaz visual para el usuario 
+    @GetMapping("/inicio")
+    public String mostrarInicio() {
+        return "index"; 
     }
 
-    /**
-     * Endpoint para generar y descargar el reporte profesional en PDF.
-     */
+    // Procesa la lógica y entrega el reporte en PDF [cite: 16, 23]
     @GetMapping("/descargar")
     public ResponseEntity<byte[]> descargarReporte(@RequestParam String dominio) {
-        // 1. Preparamos los datos para el reporte
+        // Datos basados en el ejemplo del documento formal [cite: 53]
         int score = scoreService.calcularScoreTotal(18, 3, 15, 1);
         
         ExposicionDTO dto = new ExposicionDTO();
@@ -63,13 +44,11 @@ public class ReportController {
         dto.setTotalCuentasExpuestas(18);
         dto.setTotalFiltraciones(3);
 
-        // 2. Generamos los bytes del PDF invocando al componente utilitario
         byte[] pdfBytes = pdfGenerator.generarReporteExposicion(dto);
 
-        // 3. Configuramos los Headers para que el navegador/Postman lo reconozca como PDF
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("attachment", "Reporte_Exposicion_" + dominio + ".pdf");
+        headers.setContentDispositionFormData("attachment", "Reporte_" + dominio + ".pdf");
 
         return ResponseEntity.ok()
                 .headers(headers)
