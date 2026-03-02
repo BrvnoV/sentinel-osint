@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Servicio encargado de transformar los datos crudos obtenidos por la API 
- * en un nivel de riesgo comprensible para el Reporte de Exposición[cite: 9, 15].
- */
+
+// Servicio encargado de transformar los datos crudos obtenidos por la API 
+// en un nivel de riesgo comprensible para el Reporte de Exposición[cite: 9, 15].
+ 
 @Service
 public class ScoreService {
 

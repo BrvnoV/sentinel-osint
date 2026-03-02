@@ -1,49 +1,273 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+
 <head>
     <meta charset="UTF-8">
-    <title>CompuNet - Generador de Reportes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompuNet - Cyber OSINT 🛡️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Space+Grotesk:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
     <style>
-        .navbar-compunet { background-color: #0047AB; } /* Azul del logo */
-        .btn-compunet { background-color: #0047AB; color: white; }
-        .btn-compunet:hover { background-color: #003380; color: white; }
+        :root {
+            --primary-purple: #8B5CF6;
+            --accent-pink: #D946EF;
+            --bg-dark: #020617;
+            --card-bg: rgba(15, 23, 42, 0.25);
+            --text-color: #f8fafc;
+            --glass-border: rgba(139, 92, 246, 0.3);
+            --blur: 30px;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .bg-gif {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            object-fit: cover;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        /* TITULADO MONOTON */
+        .brand-text {
+            font-family: "Monoton", sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            letter-spacing: 5px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        /* GLASS CARD PRINCIPAL */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .form-control {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 18px;
+            color: white;
+        }
+
+        .btn-modern {
+            background: linear-gradient(45deg, var(--primary-purple), #6d28d9);
+            border: none;
+            border-radius: 15px;
+            padding: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.4s;
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        /* LOADER / SPINNER */
+        #loader-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .spinner {
+            background-image: linear-gradient(var(--primary-purple) 35%, var(--accent-pink));
+            width: 80px;
+            height: 80px;
+            animation: spinning 1.7s linear infinite;
+            border-radius: 50%;
+            box-shadow: 0px 0px 20px var(--primary-purple);
+        }
+
+        .spinner-inner {
+            background-color: #0f172a;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            filter: blur(8px);
+        }
+
+        @keyframes spinning {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- CARDS MINIMALISTAS (RESTAURADAS) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+            width: 100%;
+        }
+
+        .minimal-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(var(--blur));
+            -webkit-backdrop-filter: blur(var(--blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .minimal-card:hover {
+            transform: translateY(-10px);
+            background: rgba(139, 92, 246, 0.1);
+            border-color: var(--primary-purple);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .minimal-card:hover .card-icon {
+            color: var(--accent-pink);
+            transform: scale(1.1);
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: rgba(248, 250, 252, 0.7);
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px;
+            opacity: 0.4;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
-<body class="bg-light">
-    <nav class="navbar navbar-compunet mb-5 shadow-sm">
-        <div class="container">
-            <span class="navbar-brand text-white fw-bold">CompuNet® - Seguridad OSINT</span>
-        </div>
-    </nav>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-7">
-                <div class="card shadow border-0">
-                    <div class="card-body p-5">
-                        <h2 class="text-center mb-4" style="color: #0047AB;">Análisis de Exposición</h2>
-                        <p class="text-muted text-center mb-4">
-                            Obtenga un reporte profesional sobre la seguridad de su dominio en segundos.
-                        </p>
-                        
-                        <form th:action="@{/api/v1/reportes/descargar}" method="get">
-                            <div class="mb-4">
-                                <label for="dominio" class="form-label fw-semibold">Dominio de la Organización</label>
-                                <input type="text" id="dominio" name="dominio" class="form-control form-control-lg" 
-                                       placeholder="ejemplo.com" required>
+<body>
+    <img th:src="@{/img/gif2.gif}" class="bg-gif" alt="background">
+
+    <div class="container text-center">
+        <header class="hero-section mt-5">
+            <h1 class="brand-text">CompuNet</h1>
+            <p class="text-muted fw-light" style="letter-spacing: 6px; text-transform: uppercase;">Cyber Intelligence
+                Division</p>
+        </header>
+
+        <div class="row justify-content-center mb-5 mt-4">
+            <div class="col-md-8 col-lg-6">
+                <div class="glass-card">
+                    <div id="form-content">
+                        <h5 class="mb-4 fw-bold opacity-75 text-uppercase" style="letter-spacing: 2px;">Protocolo de
+                            Escaneo</h5>
+                        <form th:action="@{/api/v1/reportes/descargar}" method="get" id="scan-form">
+                            <div class="mb-4 text-start">
+                                <label class="form-label small fw-bold" style="color: var(--primary-purple)">DOMINIO
+                                    OBJETIVO</label>
+                                <input type="text" name="dominio" class="form-control"
+                                    placeholder="empresa-objetivo.com" required autocomplete="off">
                             </div>
-                            <button type="submit" class="btn btn-compunet btn-lg w-100 shadow-sm">
-                                📊 Generar y Descargar Reporte PDF
+                            <button type="submit" class="btn btn-modern w-100 text-white">
+                                <i class="bi bi-terminal-fill me-2"></i> Ejecutar Auditoría
                             </button>
                         </form>
                     </div>
-                    <div class="card-footer bg-white text-center py-3 border-0">
-                        <small class="text-secondary italic">"Protegemos tu información"</small>
+
+                    <div id="loader-container">
+                        <div class="spinner">
+                            <div class="spinner-inner"></div>
+                        </div>
+                        <div class="mt-3 text-uppercase small"
+                            style="letter-spacing: 3px; color: var(--primary-purple);">Analizando superficie expuesta...
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row mt-5">
+            <div class="services-grid">
+                <div class="minimal-card">
+                    <i class="bi bi-incognito card-icon"></i>
+                    <h3 class="card-title">Minería OSINT</h3>
+                    <p class="card-text">Extracción automatizada de huellas digitales en la red superficial y profunda
+                        sin dejar rastro.</p>
+                </div>
+
+                <div class="minimal-card">
+                    <i class="bi bi-shield-check card-icon"></i>
+                    <h3 class="card-title">Vector de Riesgo</h3>
+                    <p class="card-text">Cálculo preciso de la probabilidad de intrusión basado en filtraciones de
+                        credenciales reales.</p>
+                </div>
+
+                <div class="minimal-card">
+                    <i class="bi bi-file-earmark-pdf card-icon"></i>
+                    <h3 class="card-title">Certificación</h3>
+                    <p class="card-text">Generación de reporte forense PDF con medidas correctivas inmediatas para el
+                        equipo CISO.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 COMPUNET SECURITY SOLUTIONS | ENCRYPTION LEVEL: MAXIMUM</p>
+        </footer>
     </div>
+
+    <script>
+        document.getElementById('scan-form').addEventListener('submit', function () {
+            document.getElementById('form-content').style.display = 'none';
+            document.getElementById('loader-container').style.display = 'flex';
+        });
+    </script>
 </body>
+
 </html>

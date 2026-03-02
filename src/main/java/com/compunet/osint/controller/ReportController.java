@@ -31,10 +31,10 @@ public class ReportController {
         return "index"; 
     }
 
-    // Procesa la lógica y entrega el reporte en PDF [cite: 16, 23]
+    // Procesa la lógica y entrega el reporte en PDF 
     @GetMapping("/descargar")
     public ResponseEntity<byte[]> descargarReporte(@RequestParam String dominio) {
-        // Datos basados en el ejemplo del documento formal [cite: 53]
+        // Datos basados en el ejemplo del documento formal
         int score = scoreService.calcularScoreTotal(18, 3, 15, 1);
         
         ExposicionDTO dto = new ExposicionDTO();
