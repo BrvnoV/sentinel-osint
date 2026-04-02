@@ -99,13 +99,5 @@ OSINT-REPORT-SYSTEM/
 Este sistema opera bajo los principios de **Hacking Ético**. Todas las consultas se realizan sobre fuentes de datos públicas y abiertas (**OSINT**), cumpliendo con los estándares de privacidad vigentes.
 -----
 
-## 📄 Licencia
-
-Este proyecto es propiedad de **CompuNet Security Solutions**. Queda prohibida su reproducción total o parcial sin autorización previa.
-
-© 2026 CompuNet Security | Infrastructure by Design.
-
------
-
 ### 👨‍💻 Autor
 Bruno Valenzuela
