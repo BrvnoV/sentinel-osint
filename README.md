@@ -1,22 +1,22 @@
-[cite_start]Este es un **README.md** diseñado profesionalmente para tu proyecto **OSINT-REPORT-SYSTEM**[cite: 1, 3, 191]. Sigue las mejores prácticas de la industria, estructurado para ser claro tanto para desarrolladores senior como para potenciales clientes o evaluadores técnicos.
+
 
 -----
 
 # 🛡️ CompuNet | OSINT Report System
 
-[cite_start]**CompuNet** es un ecosistema de confianza digital diseñado para realizar auditorías de inteligencia avanzada[cite: 1, 3, 191]. [cite_start]Utilizando técnicas de **OSINT** (Open Source Intelligence), el sistema rastrea infraestructuras digitales para detectar activos expuestos, analizar riesgos de seguridad y generar reportes ejecutivos automatizados[cite: 1, 15, 17, 91].
+**CompuNet** es un ecosistema de confianza digital diseñado para realizar auditorías de inteligencia avanzada[cite: 1, 3, 191]. [cite_start]Utilizando técnicas de **OSINT** (Open Source Intelligence), el sistema rastrea infraestructuras digitales para detectar activos expuestos, analizar riesgos de seguridad y generar reportes ejecutivos automatizados.
 
 -----
 
 ## 🚀 Características Principales
 
-  * [cite_start]**Horizon Hero Section:** Experiencia de usuario inmersiva con un motor espacial 3D desarrollado en **Three.js** y **GSAP**[cite: 3, 4, 88].
-  * [cite_start]**Protocolo de Auditoría:** Escaneo profundo de dominios corporativos mediante integración con APIs de inteligencia[cite: 16, 17, 18, 93].
+**Horizon Hero Section:** Experiencia de usuario inmersiva con un motor espacial 3D desarrollado en **Three.js** y **GSAP**.
+**Protocolo de Auditoría:** Escaneo profundo de dominios corporativos mediante integración con APIs de inteligencia.
   * **Capacidades Analíticas:**
-      * [cite_start]**Detección de Activos:** Rastreo en Clear y Deep Web para identificar fugas de información[cite: 17, 18, 94].
-      * [cite_start]**Análisis de Riesgo:** Evaluación dinámica basada en vectores de explotación reales[cite: 15, 20, 91, 118].
-      * [cite_start]**Reporte Ejecutivo:** Generación de certificaciones técnicas en formato PDF listas para remediación[cite: 91, 152, 153].
-  * [cite_start]**UI/UX Premium:** Interfaz minimalista con diseño de cristal (*Glassmorphism*), tipografía **Montserrat** y componentes interactivos (*Flip Cards*)[cite: 38, 43, 64].
+      * **Detección de Activos:** Rastreo en Clear y Deep Web para identificar fugas de información.
+      * **Análisis de Riesgo:** Evaluación dinámica basada en vectores de explotación reales.
+      ***Reporte Ejecutivo:** Generación de certificaciones técnicas en formato PDF listas para remediación.
+  * **UI/UX Premium:** Interfaz minimalista con diseño de cristal (*Glassmorphism*), tipografía **Montserrat** y componentes interactivos (*Flip Cards*).
 
 -----
 
@@ -24,17 +24,17 @@
 
 ### Backend
 
-  * [cite_start]**Java 17+** [cite: 1]
-  * [cite_start]**Spring Boot 3.x** [cite: 1]
-  * [cite_start]**Spring Web:** Arquitectura MVC y REST Controllers [cite: 1]
-  * [cite_start]**Thymeleaf:** Motor de plantillas para vistas dinámicas y PDF [cite: 1]
+  * **Java 17+**
+  * **Spring Boot 3.x**
+  * **Spring Web:** Arquitectura MVC y REST Controllers
+  * **Thymeleaf:** Motor de plantillas para vistas dinámicas y PDF
 
 ### Frontend
 
-  * [cite_start]**Three.js:** Animaciones espaciales de fondo y efectos 3D[cite: 3, 5, 25].
-  * [cite_start]**GSAP (GreenSock):** Control de animaciones basadas en scroll[cite: 3, 88].
-  * [cite_start]**Bootstrap 5:** Sistema de rejilla y utilidades CSS[cite: 1].
-  * [cite_start]**Bootstrap Icons:** Paquete de iconografía técnica[cite: 1].
+  * **Three.js:** Animaciones espaciales de fondo y efectos 3D.
+  * **GSAP (GreenSock):** Control de animaciones basadas en scroll.
+  * **Bootstrap 5:** Sistema de rejilla y utilidades CSS.
+  * **Bootstrap Icons:** Paquete de iconografía técnica.
 
 -----
 
