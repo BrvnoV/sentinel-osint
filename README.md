@@ -1,4 +1,4 @@
-# 🛡️ Sentinel OSINT — Asset Exposure & Intelligence System
+# 🛡️ Sentinel OSINT — Sistema de Inteligencia y Análisis de Exposición de Activos
 
 [![Java](https://img.shields.io/badge/Java-17+-007396?style=flat&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-6DB33F?style=flat&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
@@ -31,31 +31,50 @@
 ## 🛠️ Stack Tecnológico
 
 ### Backend
-- **Lenguaje:** Java 17+
-- **Framework:** Spring Boot 3.x (Spring Web, Spring MVC)
-- **Motor de Plantillas:** Thymeleaf (renderizado de vistas y generación de documentos PDF)
-- **Gestión de Dependencias:** Maven
+* **Lenguaje:** Java 17+
+* **Framework:** Spring Boot 3.x (Spring Web, Spring MVC)
+* **Motor de Plantillas:** Thymeleaf
+* **Gestión de Dependencias:** Maven
 
 ### Frontend
-- **3D & Renderizado:** Three.js
-- **Animaciones:** GSAP (GreenSock Animation Platform)
-- **Framework CSS:** Bootstrap 5 & Bootstrap Icons
-- **Diseño:** Glassmorphism + CSS3 avanzado
+* **3D & Renderizado:** Three.js
+* **Animaciones:** GSAP (GreenSock Animation Platform)
+* **Framework CSS:** Bootstrap 5 & Bootstrap Icons
+* **Diseño:** Glassmorphism + CSS3 avanzado
 
 ---
 
-## 🏗️ Estructura del Proyecto
+## 🚀 Instalación y Ejecución Local
 
-```text
-src/
-├── main/
-│   ├── java/com/compunet/osint/
-│   │   ├── controller/      # Controladores REST (ReportController, etc.)
-│   │   ├── model/           # DTOs y Objetos de Dominio
-│   │   ├── service/         # Lógica de negocio e integración con APIs
-│   │   └── util/            # Helpers y utilidades para generación de PDF
-│   └── resources/
-│       ├── static/          # Assets estáticos (CSS, JS 3D, imágenes)
-│       ├── templates/       # Vistas Thymeleaf e impresiones PDF
-│       └── application.yaml # Configuración de la aplicación
-└── pom.xml                  # Archivo de configuración Maven
+### Requisitos Previos
+* **JDK 17** o superior instalado.
+* **Maven 3.6+** (o utilizar el wrapper `./mvnw` incluido).
+
+### Pasos
+1. **Clonar el repositorio:**
+   `git clone https://github.com/tu-usuario/sentinel-osint-core.git`
+   `cd sentinel-osint-core`
+
+2. **Compilar y ejecutar la aplicación:**
+   `./mvnw spring-boot:run`
+
+3. **Acceder a la plataforma:**
+   Abre tu navegador web e ingresa a: `http://localhost:8080`
+
+---
+
+## 🔒 Privacidad y Enfoque Ético
+
+Este proyecto ha sido desarrollado bajo principios de **Hacking Ético** y **Seguridad Defensiva (Blue Team)**. Todas las consultas y recolecciones de información se ejecutan exclusivamente sobre fuentes de datos públicas y abiertas (OSINT), respetando los marcos normativos y de privacidad vigentes.
+
+---
+
+## 👨‍💻 Autor
+
+* **Bruno Valenzuela** — *Cybersecurity & Fullstack Developer* — [GitHub](https://github.com/tu-usuario) | [LinkedIn](https://linkedin.com/in/tu-perfil)
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia [MIT](LICENSE).
