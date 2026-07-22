@@ -10,14 +10,6 @@
 
 ---
 
-## 📸 Vista Previa e Interfaz
-
-| Hero Section 3D (Three.js) | Panel de Auditoría OSINT | Reporte Ejecutivo Generado |
-| :---: | :---: | :---: |
-| *(Agrega imagen aquí)* | *(Agrega imagen aquí)* | *(Agrega imagen aquí)* |
-
----
-
 ## ✨ Características Principales
 
 * 🌌 **Experiencia Inmersiva (Hero Section):** Motor espacial 3D desarrollado con **Three.js** y animaciones controladas por scroll mediante **GSAP**.
